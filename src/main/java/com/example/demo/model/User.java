@@ -19,6 +19,14 @@ public class User {
 	private String email;
 	
 	private LocalDate dateOfBirth;
+	
+	public void setDate(String date) {
+		this.dateOfBirth = LocalDate.parse(date);
+	}
+	
+	public String getDate() {
+		return this.dateOfBirth.toString();
+	}
 
 
 

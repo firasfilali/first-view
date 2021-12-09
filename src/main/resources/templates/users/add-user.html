@@ -87,7 +87,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Show Users</h2>
+          <h2>Add Users</h2>
           
         </div>
 
@@ -96,32 +96,36 @@
 
     <section class="inner-page">
       <div class="container">
-      <div class="table-responsive">
-  <table class="table table-striped table-hover table-light border-secondary">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Date Of Birth</th>
-        <th scope="col">E-mail</th>
-        <th scope="col"><a href="/add/user"><button class="btn btn-primary btn-sm">Add</button></a></th>        
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="user : ${listUsers}">
-        <th scope="row" th:text="${user.Id}">1</th>
-        <td th:text="${user.name}">Sit</td>
-        <td th:text="${user.email}">Amet</td>
-        <td th:text="${user.dateOfBirth}">Consectetur</td>
-        <td><a th:href="'/update/user/'+${user.Id}"><i class='bx bx-edit-alt' style='color:#1471d1' ></i></a>
-        <a th:href="'/delete/user/'+${user.Id}"><i class='bx bx-trash' style='color:#d11430' ></i></a></td>
-      
-        
-        
-      </tr>
-    </tbody>
+      <form class="border border-light p-5" method="post" action="/add/user" th:object="${user}">
 
-  </table>
+    <p class="h4 mb-4 text-center">Add</p>
+
+					<div class="row">
+						<div class="col-md-3"> 	</div>
+						<div class="col-md-6">
+						  <input hidden="hidden" th:field="*{id}" type="text" id="id" class="form-control" >
+						
+    				<label for="name">Name</label>
+				    <input th:field="*{name}" type="text" id="name" class="form-control" >
+				    
+				    <label for="pass">Password</label>
+				    <input th:field="*{password}" type="password" id="pass" class="form-control" >
+				    
+				    <label for="date">Date of Birth</label>
+				    <input th:field="*{date}" type="date" id="date" class="form-control" >
+				    
+				    <label for="email">E-mail</label>
+				    <input th:field="*{email}" type="email" id="email" class="form-control" >
+				
+				
+					<div class="d-grid gap-2" style="padding-top: 30px">
+    				<button class="btn btn-success " type="submit">Save</button>
+    				</div>
+    				</div>
+    				</div>
+</form>
+      <div class="table-responsive">
+  
 </div>
       </div>
     </section>

@@ -19,5 +19,20 @@ public class UserDB {
 	public static void remove(int id) {
 		users.removeIf(user-> user.getId()==id);
 	}
+	
+	public static void add(User user) {
+		if(user.getId()== 0)
+			user.setId(users.size()+1);
+		else
+			remove(user.getId());
+		users.add(user);
+	}
+
+	public static User get(int id) {
+		
+		return users.stream()
+					.filter(user -> user.getId() == id)
+					.findFirst().get();
+	}
 
 }
