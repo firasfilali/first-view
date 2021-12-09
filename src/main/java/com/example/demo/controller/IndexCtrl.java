@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.model.UserDB;
 
@@ -20,6 +21,11 @@ public class IndexCtrl {
 	public String getShowUsers(Model model) {
 		model.addAttribute("listUsers",UserDB.getUsers());
 		return "users/show-users";
-		
+	}
+	
+	@GetMapping("/delete/user/{id}")
+	public String deleteUser(@PathVariable int id){
+		UserDB.remove(id);
+		return "redirect:/show/users";
 	}
 }

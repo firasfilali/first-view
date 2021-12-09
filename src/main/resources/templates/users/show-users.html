@@ -104,6 +104,7 @@
         <th scope="col">Name</th>
         <th scope="col">Date Of Birth</th>
         <th scope="col">E-mail</th>
+        <th scope="col"><a><button class="btn btn-primary btn-sm">Add</button></a></th>        
       </tr>
     </thead>
     <tbody>
@@ -112,6 +113,11 @@
         <td th:text="${user.name}">Sit</td>
         <td th:text="${user.email}">Amet</td>
         <td th:text="${user.dateOfBirth}">Consectetur</td>
+        <td><a th:href="'/update/user/'+${user.Id}"><i class='bx bx-edit-alt' style='color:#1471d1' ></i></a>
+        <a th:href="'/delete/user/'+${user.Id}"><i class='bx bx-trash' style='color:#d11430' ></i></a></td>
+      
+        
+        
       </tr>
     </tbody>
 
